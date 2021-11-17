@@ -12,7 +12,9 @@ import jakarta.servlet.http.HttpSession;
 
 
 /**
- * Servlet implementation class LoginServlet
+ * 
+ * @author antoinefissot
+ *	Servlet de la page de login
  */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -30,11 +32,15 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// Je crée un utilisateur en dur pour ma session 
 		User userConnected = new User("Antoine", 3, "antoine@semifir.com", "user");
 		
-		// Je set mon utilisateur dans ma session
+		// Je récupère ma session dans la request
 		HttpSession session = request.getSession();
+		// Je set mon utilisateur dans ma session
 		session.setAttribute("USER", userConnected);
+		
+		// Je redirige mon utilisateur vers /blog/home 
 		response.sendRedirect("/blog/home");
 	}
 

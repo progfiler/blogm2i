@@ -28,9 +28,13 @@ public class UsersServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Je récupère la session  stocké dans la request
 		HttpSession session = request.getSession();
+		// Je récupère l'utilisateur stock dans la session
 		User userConnected = (User) session.getAttribute("USER");
+		// Je transmet l'utilisateur à la JSP en lui set un attribut user 
 		request.setAttribute("user", userConnected);
+		// Je renvoi le JSP user
 		request.getRequestDispatcher("/WEB-INF/user.jsp")
 		.forward(request, response);
 	}

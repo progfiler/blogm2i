@@ -26,7 +26,7 @@ public class AdminServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// Je retourne juste le JSP de la page Admin
 		request.getRequestDispatcher("/WEB-INF/admin.jsp")
 		.forward(request, response);
 	}

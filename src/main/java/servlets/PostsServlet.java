@@ -20,14 +20,16 @@ import services.PostsServices;
 @WebServlet("/posts")
 public class PostsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private List<User> users = new ArrayList<User>();
+	// Je crée une liste d'article  vide qui contiendra plus tard la liste de mes articles
 	private List<Article> posts = new ArrayList<Article>();
+	// Je crée une vraiable qui contiendra plus tard dans mon code un article
 	private PostsServices postsServices = PostsServices.getInstance();
 	
     /**
      * Default constructor. 
      */
     public PostsServlet() {
+    	// Je récupère la liste de mes articles grâce au service postsServices et sa méthode getArticles()
     	this.posts = postsServices.getArticles();
     }
 
@@ -36,7 +38,9 @@ public class PostsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// Je passe les articles dans le JSP en lui set un attribut posts
 		request.setAttribute("posts", posts);
+		// Je renvoi le JSP posts
 		request.getRequestDispatcher("/WEB-INF/posts.jsp")
 			.forward(request, response);
 	}

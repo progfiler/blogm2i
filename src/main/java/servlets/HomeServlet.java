@@ -27,7 +27,8 @@ public class HomeServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Je retourne juste le JSP de la page home
 		request.getRequestDispatcher("/WEB-INF/home.jsp")
 				.forward(request, response);
 	}
