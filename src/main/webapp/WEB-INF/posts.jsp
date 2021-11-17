@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Accueil de mon blog</h1>
-	<ul>
-		<li><a href="/blog/user">Mon profil</a></li>	
-		<li><a href="/blog/posts">Les articles</a></li>	
-	</ul>
+<h1>Les articles</h1>
+
 </body>
 </html>
