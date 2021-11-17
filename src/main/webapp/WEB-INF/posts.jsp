@@ -13,7 +13,7 @@
 <ul>
 	<% for (Article post : (List<Article>) request.getAttribute("posts")) { %>
 		<li>	
-			<a href="#"><%= post.getTitle() %></a>
+			<a href="/blog/post?title=<%= post.getTitle() %>"><%= post.getTitle() %></a>
 		</li>
 	<% } %>
 </ul>

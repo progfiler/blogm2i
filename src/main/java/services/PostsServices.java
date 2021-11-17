@@ -13,7 +13,7 @@ public class PostsServices {
 	private List<Article> posts = new ArrayList<Article>();
 	
 	private PostsServices() {
-		for (int i = 1; i <= 5; i++) {
+		for (int i = 1; i <= 10; i++) {
     		String role;
     		if (i % 2 == 0) role = "admin";
     		else role = "user";
@@ -23,7 +23,7 @@ public class PostsServices {
     	for (User user : users) {
     		for (int i = 0; i < user.getNbrPost(); i++) {
     			posts.add(
-    					new Article("title-" + user.getUsername(), 
+    					new Article("title"+i+"-" + user.getUsername(), 
     	    					"dzbh-"+ user.getUsername(), 
     	    					user)
     			);
@@ -40,6 +40,17 @@ public class PostsServices {
 	
 	public List<Article> getArticles() {
 		return this.posts; 
+	}
+	
+	public Article getArticleByName(String title) {
+		Article response = null;
+		for (Article post : posts) {
+			if (post.getTitle().equals(title)) {
+				response = post;
+				break;
+			}
+		}
+		return response;
 	}
 
 }
