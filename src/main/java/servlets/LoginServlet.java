@@ -10,26 +10,32 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+
 /**
- * Servlet implementation class Home
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/home")
-public class HomeServlet extends HttpServlet {
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public HomeServlet() {
+    public LoginServlet() {
         // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		request.getRequestDispatcher("/WEB-INF/home.jsp")
-				.forward(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		User userConnected = new User("Antoine", 3, "antoine@semifir.com", "user");
+		
+		// Je set mon utilisateur dans ma session
+		HttpSession session = request.getSession();
+		session.setAttribute("USER", userConnected);
+		response.sendRedirect("/blog/home");
 	}
 
 	/**
