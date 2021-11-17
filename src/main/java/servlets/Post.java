@@ -1,11 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import blog.models.Article;
-import blog.models.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,32 +9,28 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import services.PostsServices;
 
-
 /**
- * Servlet implementation class PostsServlet
+ * Servlet implementation class Post
  */
-@WebServlet("/posts")
-public class PostsServlet extends HttpServlet {
+@WebServlet("/post")
+public class Post extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private List<User> users = new ArrayList<User>();
-	private List<Article> posts = new ArrayList<Article>();
 	private PostsServices postsServices = PostsServices.getInstance();
 	
     /**
      * Default constructor. 
      */
-    public PostsServlet() {
-    	this.posts = postsServices.getArticles();
+    public Post() {
+    	System.out.println(postsServices.getArticles());
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setAttribute("posts", posts);
-		request.getRequestDispatcher("/WEB-INF/posts.jsp")
-			.forward(request, response);
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("/WEB-INF/post.jsp")
+		.forward(request, response);
 	}
 
 	/**
